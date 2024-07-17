@@ -3,7 +3,7 @@
 int main_diamond()
 {
 	int num = 0;
-	printf("¿øÇÏ´Â ¼ýÀÚ ÀÔ·Â :");
+	printf("ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ :");
 	scanf_s("%d", &num);
 	int i, j, k;
 	int a, b, c;
@@ -11,9 +11,9 @@ int main_diamond()
 	
 	if(num % 2 == 1)
 	{
-		for (i = 0; i <= l; i++) //À§ º°
+		for (i = 0; i <= l; i++) //ï¿½ï¿½ ï¿½ï¿½
 		{
-			for (k = i; k <= l-1; k++) //°ø¹é ¿ª¼ø
+			for (k = i; k <= l-1; k++) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				printf(" ");
 			}
@@ -23,13 +23,13 @@ int main_diamond()
 			}
 			printf("\n");
 		}
-		for (a = 0; a <= l-1; a++) //¾Æ·¡ *
+		for (a = 0; a <= l-1; a++) //ï¿½Æ·ï¿½ *
 		{
-			for (b = 0; b <= a; b++) // °ø¹é
+			for (b = 0; b <= a; b++) // ï¿½ï¿½ï¿½ï¿½
 			{
 				printf(" ");
 			}
-			for (c = 2 * a; c <= num - 3; c++) //* ¿ª¼ø
+			for (c = 2 * a; c <= num - 3; c++) //* ï¿½ï¿½ï¿½ï¿½
 			{
 				printf("*");
 			}
@@ -38,9 +38,9 @@ int main_diamond()
 	}
 	else
 	{
-		for (i = 0; i <= l; i++) //À§ º°
+		for (i = 0; i <= l; i++) //ï¿½ï¿½ ï¿½ï¿½
 		{
-			for (k = i; k <= l - 1; k++) //°ø¹é ¿ª¼ø
+			for (k = i; k <= l - 1; k++) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				printf(" ");
 			}
@@ -50,13 +50,13 @@ int main_diamond()
 			}
 			printf("\n");
 		}
-		for (a = 0; a <= l - 1; a++) //¾Æ·¡ *
+		for (a = 0; a <= l - 1; a++) //ï¿½Æ·ï¿½ *
 		{
-			for (b = 0; b <= a; b++) // °ø¹é
+			for (b = 0; b <= a; b++) // ï¿½ï¿½ï¿½ï¿½
 			{
 				printf(" ");
 			}
-			for (c = 2*a; c <= num - 3; c++) //* ¿ª¼ø
+			for (c = 2*a; c <= num - 3; c++) //* ï¿½ï¿½ï¿½ï¿½
 			{
 				printf("*");
 			}
