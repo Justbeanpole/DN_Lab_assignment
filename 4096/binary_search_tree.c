@@ -34,7 +34,14 @@ int main()
 		}
 		else if (input == 2)
 		{
-			preorderTraversal(head); printf("\n");
+			if (head != NULL) {
+				preorderTraversal(head); printf("\n");
+				inorderTraversal(head); printf("\n");
+				postorderTraversal(head); printf("\n");
+			}
+			else {
+				printf("출력값이 없습니다.\n");
+			}
 		}
 		else if (input == 3)
 		{
@@ -117,12 +124,20 @@ void preorderTraversal(node* cur)
 		preorderTraversal(cur->right);
 	}
 }
-void inorderTraversal(node*head) {
-	
+void inorderTraversal(node*cur) {
+	if (cur != NULL) {
+		inorderTraversal(cur->left);
+		printf("%d\t", cur->data);
+		inorderTraversal(cur->right);
+	}
 }
 
-void postorderTraversal(node*head) {
-	
+void postorderTraversal(node*cur) {
+	if (cur != NULL) {
+		postorderTraversal(cur->left);
+		postorderTraversal(cur->right);
+		printf("%d\t", cur->data);
+	}
 }
 
 node* backTracking(node* head, node* var) {
@@ -185,46 +200,123 @@ node* deleteNode(node*head) {
 		printf("해당 숫자를 찾을 수 없습니다.\n");
 		return head;
 	}
-	printf("%d\n", delNode->data);
 	node* heir = delNode;
+	//자식 노드 0개
 	if (heir->left == NULL && heir->right == NULL) {
-		node* temp = backTracking(head, heir);
-		if (temp->left == heir) {
-			temp->left = NULL;
+		if (delNode == head) {
+			printf("삭제되었습니다.\n");
+			free(delNode);
+			return NULL;
 		}
 		else {
-			temp->right = NULL;
+			node* temp = backTracking(head, heir);
+			if (temp->left == heir) {
+				temp->left = NULL;
+			}
+			else {
+				temp->right = NULL;
+			}
 		}
+		printf("삭제되었습니다.\n");
 		free(delNode);
 		return head;
 	}
+	//자식 노드 2개
 	else if (heir->left != NULL && heir->right != NULL) {
-		if (heir->left != NULL) {
-			heir = heir->left;
-			while (heir->right) {
-				heir = heir->right;
+		heir = heir->left;
+		while (heir->right) {
+			heir = heir->right;
+		}
+		node* temp = backTracking(head, delNode);
+
+		//자식 노드 X
+		if (heir->left == NULL) {
+			//붙어 있는 경우
+			if (delNode->left == heir) {
+				heir->right = delNode->right;
 			}
-			if (heir->left == NULL) {
-				
+			//안 붙은 경우
+			else {
+				backTracking(head, heir)->right = NULL;
+				heir->left = delNode->left;
+				heir->right = delNode->right;
+			}
+			// delNode가 헤드인 경우
+			if (delNode == head) {
+				printf("삭제되었습니다.\n");
+				free(delNode);
+				return heir;
+			}
+			// 아닌 경우
+			else {
+				if (delNode->data > temp->data) {
+					temp->right = heir;
+				}
+				else {
+					temp->left = heir;
+				}
+				printf("삭제되었습니다.\n");
+				free(delNode);
+				return head;
+			}
+		}
+		//자식 노드 0
+		else {
+			//붙어 있는 경우
+			if (delNode->left == heir) {
+				heir->right = delNode->right;
+			}
+			//안 붙은 경우
+			else {
+				backTracking(head, heir)->right = heir->left;
+				heir->left = delNode->left;
+				heir->right = delNode->right;
+			}
+
+			// delNode가 헤드인 경우
+			if (delNode == head) {
+				printf("삭제되었습니다.\n");
+				free(delNode);
+				return heir;
+			}
+			// 아닌 경우
+			else {
+				if (delNode->data > temp->data) {
+					temp->right = heir;
+				}
+				else {
+					temp->left = heir;
+				}
+				printf("삭제되었습니다.\n");
+				free(delNode);
+				return head;
 			}
 		}
 	}
+	//자식 노드 1개
 	else {
-		node*temp = backTracking(head, heir);
+		node* temp = backTracking(head, heir);
 		if (heir->left != NULL) {
 			heir = heir->left;
 		}
 		else {
 			heir = heir->right;
 		}
-		if (temp->left == delNode) {
-			temp->left = heir;
+		if (delNode == head) {
+			printf("삭제되었습니다.\n");
+			free(delNode);
+			return heir;
 		}
 		else {
-			temp->right = heir;
+			if (temp->left == delNode) {
+				temp->left = heir;
+			}
+			else {
+				temp->right = heir;
+			}
+			printf("삭제되었습니다.\n");
+			free(delNode);
+			return head;
 		}
-		free(delNode);
-		return head;
 	}
-	return heir;
 }
