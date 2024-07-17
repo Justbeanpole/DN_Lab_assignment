@@ -25,9 +25,9 @@ int aa()
 	{
 		char input[10];
 		printf("****************************************************\n");
-		printf("* 1.ÀÔ·Â 2.Ãâ·Â 3.°Ë»ö 4.»èÁ¦ 5.ÀúÀå 6.·Îµå 7.Á¾·á *\n");
+		printf("* 1.ì…ë ¥ 2.ì¶œë ¥ 3.ê²€ìƒ‰ 4.ì‚­ì œ 5.ì €ì¥ 6.ë¡œë“œ 7.ì¢…ë£Œ *\n");
 		printf("****************************************************\n");
-		printf("½ÇÇà Ç×¸ñÀÇ ¹øÈ£¸¦ ÀÔ·Â: ");
+		printf("ì‹¤í–‰ í•­ëª©ì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥ : ");
 		scanf_s("%[^\n]%*c", &input, sizeof(input));
 		printf("\n");
 
@@ -38,26 +38,26 @@ int aa()
 			
 			switch (in)
 			{
-			case 1: //ÀÔ·Â
+			case 1: //ì…ë ¥
 			{
 				while (1)
 				{
-					printf("ÇĞ¹ø: ");
-					scanf_s("%[^\n]%*c", &a[i].num, sizeof(a[i].num)); //¹öÆÛ¿¡ ´ë±â ÁßÀÌ´ø ¿£ÅÍ°¡ Ã³¸®µÇ¼­ ±×³É ³Ñ¾î°¡¹ö¸®´Â Çö»ó ¹ß»ı
+					printf("í•™ë²ˆ: ");
+					scanf_s("%[^\n]%*c", &a[i].num, sizeof(a[i].num)); //ë²„í¼ì— ëŒ€ê¸° ì¤‘ì´ë˜ ì—”í„°ê°€ ì²˜ë¦¬ë˜ì„œ ê·¸ëƒ¥ ë„˜ì–´ê°€ë²„ë¦¼
 
-					//±æÀÌ ¿ä¼Ò °Ë»ç
+					//ê¸¸ì´ ìš”ì†Œ ê²€ì‚¬
 					int len = 0;
 					if (strlen(a[i].num) != 8)
 					{
-						printf("\n8ÀÚ¸® ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.\n\n");
+						printf("\n8ìë¦¬ ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”.\n\n");
 					}
 					else
 					{
 						for (len = 0; len < 8;)
 						{
-							if (!isdigit(a[i].num[len])) //¼ıÀÚ¸¸
+							if (!isdigit(a[i].num[len])) //ìˆ«ìë§Œ
 							{
-								printf("\n¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n\n");
+								printf("\nìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.\n\n");
 								break;
 							}
 							else
@@ -67,18 +67,18 @@ int aa()
 						}
 					}
 
-					//Áßº¹°Ë»ç
+					//ì¤‘ë³µê²€ì‚¬
 					for (int n = 0; n < i; n++)
 					{
-						if (!strcmp(a[i].num, a[n].num)) //strcmp´Â °°À¸¸é 0Ãâ·Â
+						if (!strcmp(a[i].num, a[n].num)) //strcmpëŠ” ê°™ìœ¼ë©´ 0ì¶œë ¥
 						{
-							printf("\n°°Àº ÇĞ¹øÀÌ ÀÖ½À´Ï´Ù.\n\n");
+							printf("\nê°™ì€ í•™ë²ˆì´ ìˆìŠµë‹ˆë‹¤.\n\n");
 							len = 0;
 							break;
 						}
 					}
 
-					//ÇĞ¹ø ¹İº¹¹® Å»Ãâ
+					//í•™ë²ˆ ë°˜ë³µë¬¸ íƒˆì¶œ
 					if (len == 8)
 					{
 						break;
@@ -88,17 +88,17 @@ int aa()
 
 				while (1)
 				{
-					printf("ÀÌ¸§: ");
+					printf("ì´ë¦„: ");
 					scanf_s("%[^\n]%*c", &a[i].name, sizeof(a[i].name));
 
 					int w = 0;
 					int correct = 0;
 					w = strlen(a[i].name);
-					for (int e = 0; e < w; e++) // ¹®Á¦¹ß»ı
+					for (int e = 0; e < w; e++) // ë¬¸ì œë°œìƒ
 					{	
-						if (isdigit(a[i].name[e]) || ispunct(a[i].name[e]) || isspace(a[i].name[e])) //±ÛÀÚ¸¸ ¼ıÀÚ, Æ¯¼ö¹®ÀÚ
+						if (isdigit(a[i].name[e]) || ispunct(a[i].name[e]) || isspace(a[i].name[e])) //ê¸€ìë§Œ ìˆ«ì, íŠ¹ìˆ˜ë¬¸ì
 						{
-							printf("\n¼ıÀÚ ¶Ç´Â Æ¯¼ö¹®ÀÚ°¡ Æ÷ÇÔµÇ¾îÀÖ½À´Ï´Ù.\n\n");
+							printf("\nìˆ«ì ë˜ëŠ” íŠ¹ìˆ˜ë¬¸ìê°€ í¬í•¨ë˜ì–´ ìˆìŠµë‹ˆë‹¤.\n\n");
 							break;
 						}
 						else
@@ -114,7 +114,7 @@ int aa()
 				printf("\n");
 				while (1)
 				{
-					printf("±¹¾î Á¡¼ö: ");
+					printf("êµ­ì–´ ì ìˆ˜: ");
 					scanf_s("%[^\n]%*c", &a[i].kscore, sizeof(a[i].kscore));
 					int anw = 0;
 					if (strlen(a[i].kscore) <= 3 && atoi(a[i].kscore) <= 100)
@@ -130,7 +130,7 @@ int aa()
 							}
 							else
 							{
-								printf("\n¼ıÀÚ¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n\n");
+								printf("\nìˆ«ìë§Œ ì…ë ¥í•´ì£¼ì„¸ìš”.\n\n");
 								break;
 							}
 						}
@@ -138,7 +138,7 @@ int aa()
 					}
 					else
 					{
-						printf("\n3ÀÚ¸® ÀÌ»ó ÀÔ·Â ºÒ°¡ÇÕ´Ï´Ù.\n\n");
+						printf("\n3ìë¦¬ ì´ìƒ ì…ë ¥ ë¶ˆê°€í•©ë‹ˆë‹¤.\n\n");
 					}
 					if (strlen(a[i].kscore) == anw)
 					{
@@ -149,7 +149,7 @@ int aa()
 				printf("\n");
 				while (1)
 				{
-					printf("¼öÇĞ Á¡¼ö: ");
+					printf("ìˆ˜í•™ ì ìˆ˜: ");
 					scanf_s("%[^\n]%*c", &a[i].mscore, sizeof(a[i].mscore));
 					int anw = 0;
 					int nm = 0;
@@ -164,14 +164,14 @@ int aa()
 							}
 							else
 							{
-								printf("\n¼ıÀÚ¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n\n");
+								printf("\nìˆ«ìë§Œ ì…ë ¥í•´ì£¼ì„¸ìš”.\n\n");
 								break;
 							}
 						}
 					}
 					else
 					{
-						printf("\n3ÀÚ¸® ÀÌ»óÀÇ ¼ıÀÚ´Â ÀÔ·Â ºÒ°¡ÇÕ´Ï´Ù.\n\n");
+						printf("\n3ìë¦¬ ì´ìƒ ì…ë ¥ ë¶ˆê°€í•©ë‹ˆë‹¤.\n\n");
 					}
 					if (anw == strlen(a[i].mscore))
 					{
@@ -181,7 +181,7 @@ int aa()
 				printf("\n");
 				while (1)
 				{
-					printf("¿µ¾î Á¡¼ö: ");
+					printf("ì˜ì–´ ì ìˆ˜: ");
 					scanf_s("%[^\n]%*c", &a[i].escore, sizeof(a[i].escore));
 					int anw = 0;
 					int nm = 0;
@@ -196,14 +196,14 @@ int aa()
 							}
 							else
 							{
-								printf("\n¼ıÀÚ¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n\n");
+								printf("\nìˆ«ìë§Œ ì…ë ¥í•´ì£¼ì„¸ìš”..\n\n");
 								break;
 							}
 						}
 					}
 					else
 					{
-						printf("\n3ÀÚ¸® ÀÌ»óÀÇ ¼ıÀÚ´Â ÀÔ·Â ºÒ°¡ÇÕ´Ï´Ù.\n\n");
+						printf("\n3ìë¦¬ ì´ìƒì˜ ìˆ«ìëŠ” ì…ë ¥ ë¶ˆê°€í•©ë‹ˆë‹¤.\n\n");
 					}
 					if (anw == strlen(a[i].escore))
 					{
@@ -214,12 +214,12 @@ int aa()
 				i++;
 				break;
 			}
-			case 2: //Ãâ·Â
+			case 2: //ì¶œë ¥
 			{
 				st b;
 				if (i == 0)
 				{
-					printf("Ãâ·Â°ªÀÌ ¾ø½À´Ï´Ù.\n\n");
+					printf("ì¶œë ¥ ê°’ì´ ì—†ìŠµë‹ˆë‹¤.\n\n");
 				}
 				for (int k = 0; k < i - 1;)
 				{
@@ -241,16 +241,16 @@ int aa()
 				for (int p = 0; p < i; p++)
 				{
 					int total = atoi(a[p].kscore) + atoi(a[p].mscore) + atoi(a[p].escore);
-					printf("ÇĞ¹ø: %8s | ÀÌ¸§: %8s | ±¹¾îÁ¡¼ö: %3s | ¼öÇĞÁ¡¼ö: %3s | ¿µ¾îÁ¡¼ö: %3s | ÃÑÇÕÁ¡¼ö: %3d | Æò±ÕÁ¡¼ö: %3d\n\n",
+					printf("í•™ë²ˆ: % 8s | ì´ë¦„ : % 8s | êµ­ì–´ì ìˆ˜ : % 3s | ìˆ˜í•™ì ìˆ˜ : % 3s | ì˜ì–´ì ìˆ˜ : % 3s | ì´í•©ì ìˆ˜ : % 3d | í‰ê· ì ìˆ˜ : % 3d\n\n",
 						a[p].num, a[p].name, a[p].kscore, a[p].mscore, a[p].escore, total, total / 3);
 				}
 
 				break;
 			}
-			case 3: //°Ë»ö
+			case 3: //ê²€ìƒ‰
 			{
 				char search[20];
-				printf("°Ë»öÇÒ ÇĞ»ıÀÇ ÇĞ¹øÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+				printf("ê²€ìƒ‰í•  í•™ìƒì˜ í•™ë²ˆì„ ì…ë ¥í•˜ì„¸ìš”: ");
 				scanf_s("%[^\n]%*c", &search, sizeof(search));
 				printf("\n");
 				int y = 0;
@@ -259,7 +259,7 @@ int aa()
 					if (!strcmp(search, a[n].num))
 					{
 						int total = atoi(a[n].kscore) + atoi(a[n].mscore) + atoi(a[n].escore);
-						printf("ÇĞ¹ø: %s | ÀÌ¸§: %s | ±¹¾îÁ¡¼ö: %s | ¼öÇĞÁ¡¼ö: %s | ¿µ¾îÁ¡¼ö: %s | ÃÑÇÕÁ¡¼ö: %d | Æò±ÕÁ¡¼ö: %d\n\n",
+						printf("í•™ë²ˆ: %s | ì´ë¦„: %s | êµ­ì–´ì ìˆ˜: %s | ìˆ˜í•™ì ìˆ˜: %s | ì˜ì–´ì ìˆ˜: %s | ì´í•©ì ìˆ˜: %d | í‰ê· ì ìˆ˜: %d\n\n",
 							a[n].num, a[n].name, a[n].kscore, a[n].mscore, a[n].escore, total, total / 3);
 						y = 1;
 						break;
@@ -267,15 +267,15 @@ int aa()
 				}
 				if (y != 1)
 				{
-					printf("ÇØ´ç ÇĞ»ıÀ» Ã£Áö ¸øÇß½À´Ï´Ù.\n\n");
+					printf("í•´ë‹¹ í•™ìƒì„ ì°¾ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.\n\n");
 					break;
 				}
 				break;
 			}
-			case 4: //»èÁ¦
+			case 4: //ì‚­ì œ
 			{
 				char del[20];
-				printf("»èÁ¦ÇÒ ÇĞ»ıÀÇ ÇĞ¹øÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+				printf("ì‚­ì œí•  í•™ìƒì˜ í•™ë²ˆì„ ì…ë ¥í•˜ì„¸ìš”: ");
 				scanf_s("%[^\n]%*c", &del, sizeof(del));
 				printf("\n");
 				int y = 0;
@@ -285,42 +285,42 @@ int aa()
 					{
 						for (int k = n; k < i; k++)
 						{
-							a[k] = a[k + 1]; //ÇÑ Ä­¾¿ ¾ÕÀ¸·Î µ¤¾î¾²±â
+							a[k] = a[k + 1]; //ï¿½ï¿½ Ä­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î¾²ï¿½ï¿½
 						}
 						y = 1;
 						i--;
-						printf("»èÁ¦µÇ¾ú½À´Ï´Ù.\n\n");
+						printf("ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.\n\n");
 						break;
 					}
 				}
 				if (y != 1)
 				{
-					printf("ÇØ´ç ÇĞ»ıÀ» Ã£Áö ¸øÇß½À´Ï´Ù.\n\n");
+					printf("í•´ë‹¹ í•™ìƒì„ ì°¾ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.\n\n");
 					break;
 				}
 				break;
 			}
-			case 5: //ÀúÀå
+			case 5: //ì €ì¥
 			{
 				FILE* fp = fopen("save.txt", "w");
 				if (fp == NULL)
 				{
-					printf("ÆÄÀÏÀÌ ¾ø½À´Ï´Ù.");
+					printf("íŒŒì¼ì´ ì—†ìŠµë‹ˆë‹¤.");
 				}
 				for (int r = 0; r < i; r++)
 				{
 					fprintf(fp, "%s %s %s %s %s \n", a[r].num, a[r].name, a[r].kscore, a[r].mscore, a[r].escore);
 				}
 				fclose(fp);
-				printf("ÀúÀåµÇ¾ú½À´Ï´Ù.\n\n");
+				printf("ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.\n\n");
 				break;
 			}
-			case 6: //·Îµå
+			case 6: //ë¡œë“œ
 			{
 				FILE* fp = fopen("save.txt", "r");
 				if (fp == NULL)
 				{
-					printf("ÆÄÀÏÀÌ ¾ø½À´Ï´Ù.");
+					printf("íŒŒì¼ì´ ì—†ìŠµë‹ˆë‹¤.");
 				}
 				int n = 0;
 				while (!feof(fp))
@@ -329,25 +329,25 @@ int aa()
 					i = n;
 					n++;
 				}
-				printf("·ÎµåµÇ¾ú½À´Ï´Ù.\n\n");
+				printf("ë¡œë“œë˜ì—ˆìŠµë‹ˆë‹¤.\n\n");
 				fclose(fp);
 				break;
 			}
-			case 7: //Á¾·á
+			case 7: //ì¢…ë£Œ
 			{
-				printf("½Ã½ºÅÛÀ» Á¾·áÇÕ´Ï´Ù.\n\n");
+				printf("ì‹œìŠ¤í…œì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n\n");
 				s = 0;
 				break;
 			}
-			default: //½ÇÇà¹øÈ£ ¿¹¿ÜÃ³¸®
+			default: //ì‹¤í–‰ë²ˆí˜¸ ì˜ˆì™¸ì²˜ë¦¬
 			{
-				printf("1~7±îÁöÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n\n");
+				printf("1~7ê¹Œì§€ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.\n\n");
 			}
 			}
 		}
 		else
 		{
-			printf("\n¼ıÀÚ°¡ ¾Æ´Ñ ´Ù¸¥ °ÍÀ» ÀÔ·ÂÇß½À´Ï´Ù.\n\n");
+			printf("\nìˆ«ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ê²ƒì„ ì…ë ¥í–ˆìŠµë‹ˆë‹¤.\n\n");
 			
 		}
 
@@ -365,14 +365,14 @@ void printst()
 		st a;
 		if (i == 0)
 		{
-			printf("Ãâ·ÂÇÒ Á¤º¸°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n\n");
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.\n\n");
 			break;
 		}
 		else
 		{
 			for (int n = 0; n < i; n++)
 			{
-				//printf("ÇĞ¹ø: %s | ÀÌ¸§: %s | ±¹¾îÁ¡¼ö: %d | ¼öÇĞÁ¡¼ö: %d | ¿µ¾îÁ¡¼ö: %d | ÃÑÇÕÁ¡¼ö: %d | Æò±ÕÁ¡¼ö: %d\n\n",
+				//printf("ï¿½Ğ¹ï¿½: %s | ï¿½Ì¸ï¿½: %s | ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %d | ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %d | ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %d | ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %d | ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %d\n\n",
 					//a[n].num, a[n].name, a[n].kscore, a[n].mscore, a[n].escore, (a[n].kscore + a[n].mscore + a[n].escore), (a[n].kscore + a[n].mscore + a[n].escore) / 3);
 			}
 			break;
