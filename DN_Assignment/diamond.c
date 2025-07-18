@@ -1,30 +1,23 @@
 #include <stdio.h>
+void printRow(int lv, int star);
 
-int main() {
+int main_diamond() {
     int input = 0;
     printf("숫자를 입력하시오 :");
     scanf("%d", &input);
-    int even = 0;
-    if (input % 2 == 0) {
-        even = 1;
+    int start = input % 2 == 0 ? 2 : 1;
+    for (int star = start; star <= input; star += 2) {
+        printRow(input, star);
     }
-    for (int level = input; level > 0; level -= 2) {
-        for (int blank = level; blank > 0; blank -= 2) {
-            printf(" ");
-        }
-        for (int star = 0; star <= input - (level - even); star++) {
-            printf("*");
-        }
-        printf("\n");
-    }
-    for (int level = 2; level < input; level += 2) {
-        for (int blank = 0; blank <= level; blank += 2) {
-            printf(" ");
-        }
-        for (int star = 1; star <= input - level; star++) {
-            printf("*");
-        }
-        printf("\n");
+    for (int star = input-2; star > 0; star -= 2) {
+        printRow(input, star);
     }
     return 0;
+}
+
+void printRow(int lv, int star) {
+    int space = (lv-star)/2;
+    for (int s = 0; s < space; s++) { printf(" "); }
+    for (int row = 0; row < star; row++) { printf("*"); }
+    printf("\n");
 }
