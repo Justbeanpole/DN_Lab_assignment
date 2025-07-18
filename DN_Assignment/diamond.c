@@ -1,67 +1,30 @@
 #include <stdio.h>
 
-int main_diamond()
-{
-	int num = 0;
-	printf("���ϴ� ���� �Է� :");
-	scanf_s("%d", &num);
-	int i, j, k;
-	int a, b, c;
-	int l = (num - 1) / 2;
-	
-	if(num % 2 == 1)
-	{
-		for (i = 0; i <= l; i++) //�� ��
-		{
-			for (k = i; k <= l-1; k++) //���� ����
-			{
-				printf(" ");
-			}
-			for (j = 0; j < 2*i+1; j++) // *
-			{
-				printf("*");
-			}
-			printf("\n");
-		}
-		for (a = 0; a <= l-1; a++) //�Ʒ� *
-		{
-			for (b = 0; b <= a; b++) // ����
-			{
-				printf(" ");
-			}
-			for (c = 2 * a; c <= num - 3; c++) //* ����
-			{
-				printf("*");
-			}
-			printf("\n");
-		}
-	}
-	else
-	{
-		for (i = 0; i <= l; i++) //�� ��
-		{
-			for (k = i; k <= l - 1; k++) //���� ����
-			{
-				printf(" ");
-			}
-			for (j = 0; j < 2 * (i+1); j++) // *
-			{
-				printf("*");
-			}
-			printf("\n");
-		}
-		for (a = 0; a <= l - 1; a++) //�Ʒ� *
-		{
-			for (b = 0; b <= a; b++) // ����
-			{
-				printf(" ");
-			}
-			for (c = 2*a; c <= num - 3; c++) //* ����
-			{
-				printf("*");
-			}
-			printf("\n");
-		}
-	}
-	return 0;
+int main() {
+    int input = 0;
+    printf("숫자를 입력하시오 :");
+    scanf("%d", &input);
+    int even = 0;
+    if (input % 2 == 0) {
+        even = 1;
+    }
+    for (int level = input; level > 0; level -= 2) {
+        for (int blank = level; blank > 0; blank -= 2) {
+            printf(" ");
+        }
+        for (int star = 0; star <= input - (level - even); star++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+    for (int level = 2; level < input; level += 2) {
+        for (int blank = 0; blank <= level; blank += 2) {
+            printf(" ");
+        }
+        for (int star = 1; star <= input - level; star++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
 }
