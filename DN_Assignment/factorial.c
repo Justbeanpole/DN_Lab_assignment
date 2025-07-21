@@ -1,49 +1,30 @@
 #include <stdio.h>
 
-int fac(int n);
-
-int main_fac()
-{
-	int total[256];
-	int j; //index
-	int c = 0; //올림수
-	int n = 1; //자릿수?
-	int i; //?!
-	int a; //합곱
-	total[0] = 1;
-	
-	for (i = 2; i <= 50; i++)
-	{
-		j = 0;
-		for (c = 0; j < n; j++)
-		{
-			a = total[j] * i + c; //계산
-			total[j] = a % 10; //배열에 값 저장
-			c = a / 10; //올림수
+int main() {
+	int result[256];
+	result[0] = 1;
+	int digits = 0; //자릿수
+	int ceiling = 0; //올림수
+	for (int num = 1; num <= 4; num++) {
+		for (int idx = 0 ; idx <= digits; idx++) {
+			result[idx] = result[idx]*num+ceiling;
+			ceiling = result[idx]/10;
+			result[idx] %= 10;
 		}
-		do
-		{
-			total[n] = c % 10; //올림수 다음 배열에 값 저장
-			n++; //자릿수 추가
-			c /= 10;
-		} while (c > 0);
+		if (ceiling > 0) {
+			digits++;
+		}
+		int idx = 0;
+		while (ceiling > 0) {
+			ceiling = result[idx]/10;
+			result[idx] = result[idx]%10+ceiling;
+			idx++;
+		}
 	}
-	//출력
-	for (int k = n-1; k >= 0; k--)
-	{
-		printf("%d", total[k]);
-	}
-	return 0;
-}
 
-int fac(int n)
-{
-	if (n >= 1)
-	{
-		return 1;
+	for (int i = 0; i<=digits; i++) {
+		printf("%d", result[i]);
 	}
-	else
-	{
-		return n * fac(n-1);
-	}
+
+	return 0;
 }
